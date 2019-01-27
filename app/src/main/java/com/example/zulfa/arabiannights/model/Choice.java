@@ -2,27 +2,27 @@ package com.example.zulfa.arabiannights.model;
 
 public class Choice {
 
-    private String mText;
-    private int mNextPage;
+    private int textId;
+    private int nextPage;
 
     public Choice(String text, int nextPage) {
-        mText = text;
-        mNextPage = nextPage;
+        textId = text;
+        this.nextPage = nextPage;
     }
 
     public String getText() {
-        return mText;
+        return textId;
     }
 
     public void setText(String text) {
-        mText = text;
+        textId = text;
     }
 
     public int getNextPage() {
-        return mNextPage;
+        return nextPage;
     }
 
     public void setNextPage(int nextPage) {
-        mNextPage = nextPage;
+        this.nextPage = nextPage;
     }
 }

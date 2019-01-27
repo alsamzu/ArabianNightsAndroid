@@ -1,6 +1,7 @@
 package com.example.zulfa.arabiannights.ui;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,20 +13,20 @@ import com.example.zulfa.arabiannights.R;
 public class MainActivity extends AppCompatActivity {
 
 
-    private EditText mNameField;
-    private Button mStartButton;
+    private EditText nameField;
+    private Button startButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-	 mNameField = (EditText)findViewById(R.id.nameEditText);
-        mStartButton = (Button)findViewById(R.id.startButton);
+	 nameField = (EditText)findViewById(R.id.nameEditText);
+        startButton = (Button)findViewById(R.id.startButton);
 
-        mStartButton.setOnClickListener(new View.OnClickListener() {
+        startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = mNameField.getText().toString();
+                String name = nameField.getText().toString();
                 startStory(name);
             }
         });
@@ -33,14 +34,16 @@ public class MainActivity extends AppCompatActivity {
 
   private void startStory(String name) {
         Intent intent = new Intent(this, StoryActivity.class);
-        intent.putExtra(getString(R.string.key_name), name);
+      Resources resources = getResources();
+      String key = resources.getString(R.string.key_name);
+        intent.putExtra(key, name);
         startActivity(intent);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        //mNameField.setText("");
+        //nameField.setTextId("");
     }
 
 

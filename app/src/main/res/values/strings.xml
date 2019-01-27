@@ -3,6 +3,9 @@
     <string name="title_activity_story">StoryActivity</string>
     <string name="action_settings">Settings</string>
     <string name="key_name">name</string>
+    <string name="signals_from_mars_tittle_page">Signals from mars tittle page</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="start_your_adventure">START YOUR ADVENTURE</string>
 
 
 </resources>

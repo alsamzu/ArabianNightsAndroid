@@ -1,9 +1,7 @@
 package com.example.zulfa.arabiannights.ui;
 
-import android.graphics.pdf.PdfDocument;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
@@ -25,7 +23,7 @@ public class StoryActivity extends AppCompatActivity {
     private TextView mTextView;
     private Button mChoice1;
     private Button mChoice2;
-    private String mName;
+    private String name;
     private Page mCurrentPage;
 
     @Override
@@ -34,12 +32,12 @@ public class StoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_story);
 
         Intent intent = getIntent();
-        mName = intent.getStringExtra(getString(R.string.key_name));
+        name = intent.getStringExtra(getString(R.string.key_name));
 
-        if (mName == null) {
-            mName = "Friend";
+        if (name == null||name.isEmpty()) {
+            name = "Friend";
         }
-        Log.d(TAG, mName);
+        Log.d(TAG, name);
 
         mImageView = (ImageView)findViewById(R.id.storyImageView);
         mTextView = (TextView)findViewById(R.id.storyTextView);
@@ -55,9 +53,9 @@ public class StoryActivity extends AppCompatActivity {
         Drawable drawable = getResources().getDrawable(mCurrentPage.getImageId());
         mImageView.setImageDrawable(drawable);
 
-        String pageText = mCurrentPage.getText();
+        String pageText = mCurrentPage.getTextId();
         // Add the name if placeholder included. Won't add if no placeholder
-        pageText = String.format(pageText, mName);
+        pageText = String.format(pageText, name);
         mTextView.setText(pageText);
 
         if (mCurrentPage.isFinal()) {
